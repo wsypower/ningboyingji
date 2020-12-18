@@ -3,14 +3,10 @@
     <d2-container better-scroll>
       <template #header>
         <div class="publish-add-header">
-          <el-button
-            size="small"
-            type="primary"
-            icon="el-icon-circle-plus"
-            @click="routerSkip"
-          >
-            返回
-          </el-button>
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/home/publish' }">发布管理</el-breadcrumb-item>
+            <el-breadcrumb-item>新增发布</el-breadcrumb-item>
+          </el-breadcrumb>
         </div>
       </template>
       <div class="publish-add-main">
@@ -24,7 +20,7 @@
 export default {
   name: 'add',
   methods: {
-    routerSkip() {
+    goBack() {
       this.$router.go(-1)
     }
   }
@@ -46,6 +42,13 @@ export default {
   .publish-add-main {
     width: 100%;
     height: 1000px;
+  }
+  ::v-deep {
+    .el-breadcrumb__inner {
+      &.is-link {
+        color: #409eff;
+      }
+    }
   }
 }
 </style>

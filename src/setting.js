@@ -28,7 +28,7 @@ export default {
   // 多页面系统
   tabs: {
     // 是否开启多页面
-    show: true
+    show: false
   },
   // 菜单搜索
   search: {
@@ -39,8 +39,8 @@ export default {
     search: true,
     fullScreen: true,
     theme: true,
-    size: true,
-    i18n: true,
+    size: false,
+    i18n: false,
     color: true
   },
   // 注册的主题
