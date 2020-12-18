@@ -19,7 +19,6 @@ const frameInModules = frameInConcatModules(
   collectModule,
   frameIn
 )
-console.log(frameInModules)
 const consuming = window.performance.now() - start
 
 // 提示耗时

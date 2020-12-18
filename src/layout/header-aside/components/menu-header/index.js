@@ -79,19 +79,16 @@ export default {
   },
   watch: {
     '$route.matched': {
-      handler(val, old) {
-        const previous = old || [{ path: '/home' }]
-        const next = val
-        const previousPath = previous[previous.length - 1].path
-        const nextPath = val[val.length - 1].path
-        console.log('索引位置', previousPath)
-        console.log('下一个索引位置', nextPath)
-        if (new RegExp(nextPath).test(previousPath)) {
-          console.log('索引位置保持不变', previousPath)
-          this.active = previousPath
-        } else {
-          this.active = val[val.length - 1].path
+      handler(val) {
+        console.log(val)
+        if (this.active !== '') {
+          const baseActive = this.active.match(/(^\/[^\/]*)/g)[0]
+          if (~val[val.length - 1].path.search(baseActive)) {
+            return
+          }
         }
+
+        this.active = val[val.length - 1].path
         this.$refs.headerMenu &&
           this.$nextTick(() => {
             this.setSliderLine()
@@ -140,7 +137,7 @@ export default {
           newIndex: newActivePathIndex
         })
       } catch (error) {
-        throw new Error(error)
+        console.log(123)
       }
     },
     /**

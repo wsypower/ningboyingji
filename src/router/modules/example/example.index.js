@@ -3,25 +3,44 @@ export default [
   {
     path: 'home',
     name: 'home',
+    redirect: { name: 'publish' },
     meta: {
       auth: true,
       title: '首页'
     },
     component: () =>
-      import(/* webpackChunkName: "index" */ '@/views/system/index')
+      import(/* webpackChunkName: "index" */ '@/views/pages/publish/index.vue'),
+    children: [
+      {
+        path: 'publish',
+        name: 'publish',
+        meta: {
+          title: '测试缓存页面',
+          auth: true,
+          cache: true
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "page1" */ '@/views/pages/publish/publish.vue'
+          )
+      },
+      {
+        path: 'add',
+        name: 'add',
+        meta: {
+          title: '测试缓存页面',
+          auth: true,
+          cache: true
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "page1" */ '@/views/pages/publish/add.vue'
+          )
+      }
+    ]
   },
   // 演示页面
-  {
-    path: 'page1',
-    name: 'page1',
-    meta: {
-      title: '测试缓存页面',
-      auth: true,
-      cache: true
-    },
-    component: () =>
-      import(/* webpackChunkName: "page1" */ '@/views/demo/page1')
-  },
+
   {
     path: 'page2',
     name: 'page2',

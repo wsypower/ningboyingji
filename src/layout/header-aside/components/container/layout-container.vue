@@ -59,7 +59,10 @@
           >
             <transition :name="transitionActive ? 'fade-transverse' : ''">
               <keep-alive :include="keepAlive">
-                <router-view :key="routerViewKey" />
+                <router-view
+                  :key="routerViewKey"
+                  class="transition-active"
+                />
               </keep-alive>
             </transition>
           </div>
@@ -117,5 +120,8 @@ export default {
 .layout-container {
   width: 100%;
   height: 100%;
+}
+.transition-active {
+  position: absolute;
 }
 </style>

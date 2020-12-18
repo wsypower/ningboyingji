@@ -11,7 +11,7 @@ export default {
           collapse={this.asideCollapse}
           collapseTransition={this.asideTransition}
           uniqueOpened={true}
-          defaultActive={this.$route.fullPath}
+          defaultActive={this.active}
           ref="menu"
           onSelect={this.handleMenuSelect}
         >
@@ -32,7 +32,8 @@ export default {
   data() {
     return {
       asideHeight: 300,
-      BS: null
+      BS: null,
+      active: ''
     }
   },
   computed: {
@@ -45,6 +46,24 @@ export default {
       setTimeout(() => {
         this.scrollInit()
       }, 500)
+    },
+    '$route.matched': {
+      handler(val) {
+        if (this.active !== '') {
+          const baseActive = this.active.match(/(^\/[^\/]*)/g)[0]
+          if (~val[val.length - 1].path.search(baseActive)) {
+            return
+          }
+        }
+
+        this.active = val[val.length - 1].path
+        this.$refs.headerMenu &&
+          this.$nextTick(() => {
+            this.setSliderLine()
+            this.sliderAnima()
+          })
+      },
+      immediate: true
     }
   },
   mounted() {
@@ -68,16 +87,15 @@ export default {
     scrollInit() {
       this.BS = new BScroll(this.$el, {
         mouseWheel: true,
-        click: true
+        click: true,
         // 如果你愿意可以打开显示滚动条
-        // scrollbar: {
-        //   fade: true,
-        //   interactive: false
-        // }
+        scrollbar: {
+          fade: true,
+          interactive: false
+        }
       })
     },
     scrollDestroy() {
-      // https://github.com/d2-projects/d2-admin/issues/75
       try {
         this.BS.destroy()
       } catch (e) {

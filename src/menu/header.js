@@ -5,7 +5,7 @@ const header = [
     path: 'https://element.eleme.cn/#/zh-CN/component/transition'
   },
   {
-    path: '/home',
+    path: '/home/publish',
     title: '发布管理平台',
     icon: 'podcast'
   }

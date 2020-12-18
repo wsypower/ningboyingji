@@ -33,7 +33,9 @@ const collectRouter = () => {
       return modules
     }
     // 兼容 import export 和 require module.export 两种规范
-    modules[routerKey] = routerModules.default || routerModules
+    modules[routerKey] = (modules[routerKey] || []).concat(
+      routerModules.default || routerModules
+    )
     return modules
   }, {})
 }
