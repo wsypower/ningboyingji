@@ -48,6 +48,7 @@
           <div
             class="w-theme-container-main-header"
             flex-box="0"
+            v-if="tabIsShwo"
           >
             <d2-tabs />
           </div>
@@ -73,6 +74,7 @@ import d2MenuSide from '../menu-side'
 import d2Tabs from '../tabs'
 import { mapState } from 'vuex'
 import mixinSearch from '../../mixins/search'
+import setting from '@/setting'
 export default {
   name: 'w-layout-container',
   mixins: [mixinSearch],
@@ -85,7 +87,9 @@ export default {
       // [侧边栏宽度] 正常状态
       asideWidth: '256px',
       // [侧边栏宽度] 折叠状态
-      asideWidthCollapse: '65px'
+      asideWidthCollapse: '65px',
+      // [tabs] 是否显示tabs
+      tabIsShwo: setting.tabs.show
     }
   },
   computed: {

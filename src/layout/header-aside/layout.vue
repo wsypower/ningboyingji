@@ -27,7 +27,7 @@
           <div class="logo-group-logo">
             <d2-icon-svg
               class="logo"
-              name="logo"
+              name="logo-nibo"
               flex-box="0"
             />
           </div>
