@@ -59,7 +59,10 @@
           >
             <transition :name="transitionActive ? 'fade-transverse' : ''">
               <keep-alive :include="keepAlive">
-                <router-view :key="routerViewKey" />
+                <router-view
+                  :key="routerViewKey"
+                  class="pages"
+                />
               </keep-alive>
             </transition>
           </div>
