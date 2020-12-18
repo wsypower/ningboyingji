@@ -14,7 +14,7 @@
         </div>
       </template>
       <div class="publish-add-main">
-        123
+        这是内容发布页面
       </div>
     </d2-container>
   </div>

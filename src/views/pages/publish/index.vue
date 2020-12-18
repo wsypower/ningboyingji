@@ -14,7 +14,7 @@
         </div>
       </template>
       <div class="publish">
-        123
+        这里是新增发布
       </div>
     </d2-container>
   </div>
@@ -25,7 +25,9 @@ export default {
   name: 'home',
   methods: {
     routerSkip() {
-      this.$router.push('/add')
+      this.$router.push({
+        path: '/home/add'
+      })
     }
   }
 }

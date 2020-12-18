@@ -4,6 +4,10 @@ const header = [
     icon: 'home',
     path: 'https://element.eleme.cn/#/zh-CN/component/transition'
   },
-  { path: '/home', title: '发布管理平台', icon: 'podcast' }
+  {
+    path: '/home',
+    title: '发布管理平台',
+    icon: 'podcast'
+  }
 ]
 export default header
