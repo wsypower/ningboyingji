@@ -15,10 +15,10 @@
 .w-layout-header-aside-group {
   height: 100%;
   width: 100%;
-  min-width: 900px;
+  min-width: 500px;
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 
   // 背景上面的半透明遮罩
@@ -439,7 +439,7 @@
               .d2-container-full__body {
                 flex-grow: 1;
                 height: 100%;
-                padding: 20px 20px;
+                padding: 0 0 0 20px;
                 overflow: auto;
                 position: relative;
               }

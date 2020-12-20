@@ -11,7 +11,7 @@ export const frameIn = [
   {
     path: '/',
     name: 'root',
-    redirect: { name: 'index' },
+    redirect: { name: 'publish' },
     component: layoutHeaderAside,
     meta: {},
     children: [

@@ -1,6 +1,8 @@
 <template>
   <div class="publish-index">
-    <router-view></router-view>
+    <d2-container>
+      <router-view></router-view>
+    </d2-container>
   </div>
 </template>
 

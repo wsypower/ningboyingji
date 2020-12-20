@@ -16,10 +16,10 @@ export default {
   page: {
     opened: [
       {
-        name: 'index',
-        fullPath: '/index',
+        name: 'publish',
+        fullPath: '/publish',
         meta: {
-          title: '首页',
+          title: '发布列表',
           auth: false
         }
       }
@@ -32,21 +32,26 @@ export default {
   },
   // 菜单搜索
   search: {
-    enable: true
+    enable: false
   },
   // 头部显示的工具按钮
   tool: {
-    search: true,
-    notification: true,
-    fullScreen: true,
-    theme: true,
-    size: true,
-    i18n: true,
-    color: true
+    search: false,
+    notification: false,
+    fullScreen: false,
+    theme: false,
+    size: false,
+    i18n: false,
+    color: false
   },
   // 注册的主题
   theme: {
     list: [
+      {
+        title: '经典蔚蓝',
+        name: 'element',
+        preview: 'image/theme/element/preview@2x.png'
+      },
       {
         title: '经典淡雅',
         name: 'lightblue',
@@ -56,33 +61,6 @@ export default {
         title: '暗色模式',
         name: 'chester',
         preview: 'image/theme/chester/preview@2x.png'
-      },
-      {
-        title: '经典蔚蓝',
-        name: 'element',
-        preview: 'image/theme/element/preview@2x.png'
-      },
-      {
-        title: '紫罗兰',
-        name: 'violet',
-        preview: 'image/theme/violet/preview@2x.png'
-      },
-      {
-        title: '简约线条',
-        name: 'line',
-        backgroundImage: 'image/theme/line/bg.jpg',
-        preview: 'image/theme/line/preview@2x.png'
-      },
-      {
-        title: '流星',
-        name: 'star',
-        backgroundImage: 'image/theme/star/bg.jpg',
-        preview: 'image/theme/star/preview@2x.png'
-      },
-      {
-        title: '暗色模式',
-        name: 'tomorrow-night-blue',
-        preview: 'image/theme/tomorrow-night-blue/preview@2x.png'
       }
     ]
   },

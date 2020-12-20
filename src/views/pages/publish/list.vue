@@ -21,8 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 .list {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
+  width: 1490px;
+  height: 1000px;
+  background-color: red;
 }
 </style>
