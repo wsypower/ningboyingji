@@ -335,7 +335,7 @@ export default {
     .logo {
       font-size: 12px;
       height: 50px;
-      width: 33px;
+      width: 40px;
       fill: rgba(64, 158, 255, 1);
       margin-right: 15px;
     }

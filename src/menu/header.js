@@ -1,12 +1,12 @@
 const header = [
   {
     title: '首页',
-    icon: 'folder-o'
+    icon: 'home'
   },
   {
     path: '/publish',
     title: '发布平台',
-    icon: 'home',
+    icon: 'folder-o',
     children: [
       {
         path: '/publish',

@@ -2,7 +2,7 @@ const slider = [
   {
     path: '/publish',
     title: '发布系统',
-    icon: 'home',
+    icon: 'folder-o',
     children: [
       {
         path: '/publish/list',
