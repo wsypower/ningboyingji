@@ -121,5 +121,11 @@ module.exports = [
     library: 'Sortable',
     js: 'https://cdn.jsdelivr.net/npm/sortablejs@1.10.1/Sortable.min.js',
     css: ''
+  },
+  {
+    name: 'tinymce-all-in-one',
+    library: 'tinymce',
+    js: 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js',
+    css: ''
   }
 ]

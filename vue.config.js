@@ -26,7 +26,7 @@ const cdn = {
   css: cdnDependencies.map(e => e.css).filter(e => e),
   js: cdnDependencies.map(e => e.js).filter(e => e)
 }
-
+console.log(cdn)
 // 多页配置，默认未开启，如需要请参考 https://cli.vuejs.org/zh/config/#pages
 const pages = undefined
 // const pages = {
@@ -86,7 +86,14 @@ module.exports = {
         set(
           options,
           '[0].cdn',
-          process.env.NODE_ENV === 'production' ? cdn : []
+          process.env.NODE_ENV === 'production'
+            ? cdn
+            : {
+              // 富文本编辑器一定要先于app启动
+              js: [
+                'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
+              ]
+            }
         )
         return options
       })
