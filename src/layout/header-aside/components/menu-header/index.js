@@ -117,8 +117,12 @@ export default {
       try {
         if (/^w-menu-empty-\d+$/.test(index) || index === undefined) {
           this.$message.warning('功能暂未上线')
+          const activeIndexPath = this.active
+          this.$children[0].activeIndex = activeIndexPath
         } else if (/^https:\/\/|http:\/\//.test(index)) {
           util.open(index)
+          const activeIndexPath = this.active
+          this.$children[0].activeIndex = activeIndexPath
         } else {
           await this.setContainerCompAnimation(indexPath)
           this.$router.push({

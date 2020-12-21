@@ -7,21 +7,21 @@ const slider = [
       {
         path: '/publish/list',
         title: '发布系统列表项',
-        icon: 'home'
-        // hide: true
+        icon: 'home',
+        hide: true
       },
       {
         path: '/publish/add',
         title: '新增发布',
-        icon: 'home'
-        // hide: true
-      },
-      {
-        path: '/publish/editor',
-        title: '新增发布',
-        icon: 'home'
+        icon: 'home',
+        hide: true
       }
     ]
+  },
+  {
+    path: '/publish/editor',
+    title: '测试接口和富文本',
+    icon: 'home'
   }
 ]
 export default slider

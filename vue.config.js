@@ -107,6 +107,7 @@ module.exports = {
      */
     config.plugins.delete('prefetch').delete('preload')
     // 解决 cli3 热更新失效 https://github.com/vuejs/vue-cli/issues/1559
+    // TODO 其实就是cnpm导致的问题,推荐使用npm
     config.resolve.symlinks(true)
     // 颜色提取器
     config.plugin('theme-color-replacer').use(ThemeColorReplacer, [

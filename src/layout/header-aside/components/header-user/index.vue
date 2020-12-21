@@ -6,7 +6,10 @@
         icon="el-icon-user-solid"
       ></el-avatar>
     </div>
-    <el-dropdown
+    <!-- 暂时没有角色 -->
+    <span class="btn-text">{{`你好 admin`}}</span>
+    <!-- <span class="btn-text">{{info.name ? `你好 ${info.name}` : 'admin'}}</span> -->
+    <!-- <el-dropdown
       size="small"
       class="d2-mr"
     >
@@ -20,7 +23,7 @@
           注销
         </el-dropdown-item>
       </el-dropdown-menu>
-    </el-dropdown>
+    </el-dropdown> -->
   </div>
 </template>
 

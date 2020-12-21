@@ -79,7 +79,11 @@ export default {
     handleMenuSelect(index, indexPath) {
       if (/^w-menu-empty-\d+$/.test(index) || index === undefined) {
         this.$message.warning('功能暂未上线')
+        const activeIndexPath = this.active
+        this.$children[0].activeIndex = activeIndexPath
       } else if (/^https:\/\/|http:\/\//.test(index)) {
+        const activeIndexPath = this.active
+        this.$children[0].activeIndex = activeIndexPath
         util.open(index)
       } else {
         this.$router.push({
