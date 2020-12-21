@@ -8,85 +8,91 @@ export default ({
   tools
 }) => ({
   /**
-   * 演示any
-   * @description 方法名称
-   * @param {Object} data 请求携带的信息
+   * @name GET_ORGANIZATION
+   * @method GET
+   * @description
+   * 获取发布单位
+   * 后端描述是一级一级的递归调取
+   * 每一层传递一次orgCode,初始orgCode为空传
+   * 查询组织树子节点
+   * @param {Object} params 请求携带的信息
    */
-  DEMO_ANY(data = {}) {
-    // 模拟数据
-    // 无论GET POST 只要路径是demo
-    mock.onAny('demo/any').reply(config => {
-      console.log(config)
-      // 您可以这样在拦截请求时获取携带的数据
-      // TODO 参数是JSON格式,需要转换
-      const data = tools.parse(config.data)
-      console.log(data)
-      // 模拟正确的返回 并使用 faker 生成假数据
-      return tools.responseSuccess({
-        id: faker.random.uuid(),
-        address: faker.address.state()
-      })
-      // 模拟失败的返回
-      // return tools.responseError({}, '错误信息')
-    })
-    // 接口请求
-    // 如果这个接口不需要模拟了，请使用 request 代替 requestForMock
-    return requestForMock({
-      url: '/demo/any',
-      method: 'post',
-      data
-    })
-  },
-  /**
-   * 演示POST
-   * @description 方法名称
-   * @param {Object} data 请求携带的信息
-   */
-  DEMO_POST(data = {}) {
-    // 模拟数据
-    // 无论GET POST 只要路径是demo
-    mock.onPost('demo/post').reply(config => {
-      // 您可以这样在拦截请求时获取携带的数据
-      // const data = tools.parse(config.data)
-      // 模拟正确的返回 并使用 faker 生成假数据
-      return tools.responseSuccess({
-        rep: '这是POST请求'
-      })
-      // 模拟失败的返回
-      // return tools.responseError({}, '错误信息')
-    })
-    // 接口请求
-    // 如果这个接口不需要模拟了，请使用 request 代替 requestForMock
-    return requestForMock({
-      url: '/demo/post',
-      method: 'post',
-      data
-    })
-  },
-  /**
-   * 演示GET
-   * @description 方法名称
-   * @param {Object} data 请求携带的信息
-   */
-  DEMO_GET(params = {}) {
-    // 模拟数据
-    // 无论GET POST 只要路径是demo
-    mock.onGet('demo/get').reply(config => {
-      // 您可以这样在拦截请求时获取携带的数据
-      // const params = config.params
-      // 模拟正确的返回 并使用 faker 生成假数据
-      return tools.responseSuccess({
-        rep: '这是get请求'
-      })
-      // 模拟失败的返回
-      // return tools.responseError({}, '错误信息')
-    })
-    // 接口请求
-    // 如果这个接口不需要模拟了，请使用 request 代替 requestForMock
-    return requestForMock({
-      url: '/demo/get',
+  GET_ORGANIZATION(params = {}) {
+    return request({
+      url: '/portal/base/org/list',
       method: 'get',
       params
+    })
+  },
+
+  /**
+   * @name POST_ADD_PUBLISH
+   * @method POST
+   * @description
+   * @param {Object} data 请求携带的信息
+   */
+  POST_ADD_PUBLISH(data = {}) {
+    return request({
+      url: '/portal/portlet/add',
+      method: 'post',
+      data
+    })
+  },
+
+  /**
+   * @name POST_DEL_PUBLISH
+   * @method POST
+   * @description
+   * @param {Object} data 请求携带的信息
+   */
+  POST_DEL_PUBLISH(data = {}) {
+    return request({
+      url: '/portal/portlet/del',
+      method: 'post',
+      data
+    })
+  },
+
+  /**
+   * @name GET_CHECK_PUBLISH
+   * @method GET
+   * @description
+   * 根据id查询发布内容
+   * @param {Object} params 请求携带的信息
+   */
+  GET_CHECK_PUBLISH(params = {}) {
+    return request({
+      url: '/portal/portlet/get',
+      method: 'get',
+      params
+    })
+  },
+
+  /**
+   * @name POST_CHECK_PUBLISH_PAGE
+   * @method POST
+   * @description
+   * @param {Object} data 请求携带的信息
+   */
+  POST_CHECK_PUBLISH_PAGE(data = {}) {
+    return request({
+      url: '/portal/portlet/page',
+      method: 'post',
+      data
+    })
+  },
+
+  /**
+   * @name POST_PUBLISH_UPDATE
+   * @method POST
+   * @description
+   * @param {Object} data 请求携带的信息
+   */
+  POST_PUBLISH_UPDATE(data = {}) {
+    return request({
+      url: '/portal/portlet/upd',
+      method: 'post',
+      data
     })
   }
 })

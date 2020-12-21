@@ -47,6 +47,36 @@ function createService() {
               }`
             )
             break
+          case '401':
+            // [ 401 ] 没有权限访问
+            errorCreate(
+              `[ code: 401 ] ${dataAxios.msg}: ${
+                process.env.NODE_ENV === 'development'
+                  ? response.config.url
+                  : ''
+              }`
+            )
+            break
+          case '403':
+            // [ 403 ]
+            errorCreate(
+              `[ code: 403 ] ${dataAxios.msg}: ${
+                process.env.NODE_ENV === 'development'
+                  ? response.config.url
+                  : ''
+              }`
+            )
+            break
+          case '404':
+            // [ 404 ]
+            errorCreate(
+              `[ code: 404 ] ${dataAxios.msg}: ${
+                process.env.NODE_ENV === 'development'
+                  ? response.config.url
+                  : ''
+              }`
+            )
+            break
           default:
             // 不是正确的 code
             errorCreate(
@@ -112,10 +142,13 @@ function createService() {
  */
 function createRequestFunction(service) {
   return function(config) {
-    const token = util.cookies.get('token')
+    // const token = util.cookies.get('token')
+    // 宁波项目从sessionStory获取token
+    const token = util.sessionStorage.get('token')
     const configDefault = {
       headers: {
-        Authorization: token,
+        // 后台自定义token
+        accessToken: token,
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,

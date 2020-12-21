@@ -2,8 +2,12 @@
   <div class="editor">
     <el-button
       type="primary"
-      @click="checkData"
-    >主要按钮</el-button>
+      @click="subContent"
+    >测试发布</el-button>
+    <el-button
+      type="primary"
+      @click="testCheck"
+    >测试单id查看</el-button>
     <Tinymce
       v-model="content"
       :height="300"
@@ -25,12 +29,37 @@ export default {
   },
   data() {
     return {
-      content: `<h1>123</h1><h2>123</h2><h3>123</h3>`
+      content: `<h1>123</h1><h2>123</h2><h3>123</h3>`,
+      id: null
     }
   },
+  mounted() {
+    // 获取发布单位
+    this.$api.GET_ORGANIZATION().then(res => {
+      console.log(res)
+    })
+  },
   methods: {
-    checkData() {
-      console.log(this.content)
+    // 测试提交
+    subContent() {
+      return this.$api
+        .POST_ADD_PUBLISH({
+          title: '测试填写title',
+          type: 0,
+          content: this.content
+        })
+        .then(res => {
+          console.log(res)
+          const { id } = res
+          this.id = id
+          console.log(this.id)
+        })
+    },
+    // 测试传递一个id查看
+    testCheck() {
+      return this.$api.GET_CHECK_PUBLISH({ id: this.id }).then(res => {
+        console.log(res)
+      })
     }
   }
 }

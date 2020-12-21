@@ -11,7 +11,7 @@ export default {
         // TODO 宁波暂时先回退到门户的登录去
         // 开发我先接入一个假数据(值是swagger走了一个登录页)
         const token =
-          '33daa52ac149cd65f2fc9589405d949c8d7737168df2a9d4865cda1a5138cee9f422647791e6f3ae9e66193ef99c901238914334631aa23f'
+          '40122adc261b56ba9d5a9445d07523bdad48cc7f2c9e2566d19f07ff95d1d61aec7c4f9d12f9dcc415d1e41d826d58bcd825153033f8dd2e297d4d74bcbf6a8dd53cca2b293e1cab1e7106c2d1313c5c0725c3fb5367e55046ae68f963de7b38'
         util.sessionStorage.set('token', token)
         // window.location.href = 'http://www.baidu.com'
       }
