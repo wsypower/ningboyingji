@@ -29,6 +29,9 @@ new Vue({
     this.$store.commit('w-admin/search/init', menuHeader)
     // 初始化layout容器组件选择
     this.$store.dispatch('w-admin/container/initViewLayout', frameInRoutes)
+
+    // 从url上获取用户token并请求登录
+    this.$store.dispatch('nb-account/getAccount')
   },
   mounted() {
     // 展示系统信息
