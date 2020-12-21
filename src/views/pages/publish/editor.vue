@@ -12,11 +12,18 @@
       v-model="content"
       :height="300"
     ></Tinymce>
+    <!-- 和富文本同步 -->
+    <span>和富文本同步</span>
     <div
       class="editor-content"
       v-html="content"
     />
-
+    <!-- 反显示查看内容 -->
+    <span>反显示查看内容</span>
+    <div
+      class="editor-content"
+      v-html="textContent"
+    />
   </div>
 </template>
 
@@ -30,7 +37,8 @@ export default {
   data() {
     return {
       content: `<h1>123</h1><h2>123</h2><h3>123</h3>`,
-      id: null
+      id: null,
+      textContent: ''
     }
   },
   mounted() {
@@ -59,6 +67,8 @@ export default {
     testCheck() {
       return this.$api.GET_CHECK_PUBLISH({ id: this.id }).then(res => {
         console.log(res)
+        const { content } = res
+        this.textContent = content
       })
     }
   }
