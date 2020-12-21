@@ -22,7 +22,7 @@ export default [
           auth: true
         },
         component: () =>
-          import(/* webpackChunkName: "page1" */ '@/views/pages/publish/add')
+          import(/* webpackChunkName: "add" */ '@/views/pages/publish/add')
       },
       {
         path: 'list',
@@ -32,7 +32,19 @@ export default [
           auth: true
         },
         component: () =>
-          import(/* webpackChunkName: "page2" */ '@/views/pages/publish/list')
+          import(/* webpackChunkName: "list" */ '@/views/pages/publish/list')
+      },
+      {
+        path: 'editor',
+        name: 'editor',
+        meta: {
+          title: '发布列表',
+          auth: true
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "editor" */ '@/views/pages/publish/editor'
+          )
       }
     ]
   }
